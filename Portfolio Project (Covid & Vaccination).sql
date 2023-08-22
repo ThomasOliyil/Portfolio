@@ -28,6 +28,12 @@ from CovidDeath
 group by location, population
 order by Infected_Percentage desc
 
+--Total cases vs Total Population with date
+select location, population, date, max(total_cases)as Highest_Infected_Count, max((total_cases/population))*100 as Infected_Percentage
+from CovidDeath
+group by location, population,date
+order by Infected_Percentage desc
+
 --Countries with highest death
 select location, max(cast(total_deaths as int))as Total_death
 from CovidDeath
